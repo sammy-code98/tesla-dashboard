@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer class="pa-md-8 elevation-2 rounded-e-xl" permanent>
+  <v-navigation-drawer class="pa-md-8 elevation-1 rounded-e-xl" permanent>
     <div>
       <v-img class="mb-4" height="25" src="@/assets/logo.svg" />
     </div>
