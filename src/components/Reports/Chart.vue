@@ -4,9 +4,26 @@
       <v-row>
         <v-col cols="6">
           <v-row class="flex-wrap">
-            <v-col v-for="i in 6" :key="i" class="d-flex justify-center align-center" cols="4">
+            <v-col v-for="(act,i) in activityData" :key="i" class="d-flex justify-center align-center" cols="4">
               <div style="height: 100%; width: 100%;">
-                <div class="pa-md-4 bg-white rounded-xl border" style="width: 100%; height: 152.4px;">lol</div>
+                <div class="px-md-4 py-md-2  bg-white rounded-xl border" style="width: 100%; min-height: 202.4px;">
+                  <h3 class="text-subtitle-1 text-grey-darken-1 font-weight-regular">{{ act.title }}</h3>
+                  <div class="py-md-4">
+                    <h2 class="text-black font-weight-bold text-h4">{{ act.value }}<span class="text-grey-darken-1 text-disabled text-h5">{{ act.subValue }}</span></h2>
+                  </div>
+                  <div class="pt-md-2">
+                    <v-sparkline
+                      auto-draw
+                      color="#1B59F8"
+                      height="100"
+                      line-width="2"
+                      :model-value="act.spark"
+                      padding="24"
+                      smooth
+                      stroke-linecap="round"
+                    />
+                  </div>
+                </div>
               </div>
             </v-col>
           </v-row>
@@ -50,6 +67,39 @@
       const selectedActivityPeriod = ref('Month')
 
       const activity:ActivityI = ['Week', 'Month', 'Year']
+
+      interface ActivityCardI {
+        title:string
+        value:string
+        subValue?:string
+        spark?:number[]
+      }
+
+      const activityData:ActivityCardI[] = [
+        {
+          title: 'Active Users',
+          value: '27',
+          subValue: '/80',
+        },
+        { title: 'Questions Answered', value: '3,298' },
+        { title: 'Av. Session Length', value: '2m 34s' },
+        {
+          title: 'Starting Knowledge',
+          value: '64%',
+          spark: [0, 1, 8, 2, 9, 12, 15],
+        },
+        {
+          title: 'Current Knowledge',
+          value: '86%',
+          spark: [0, 12, 5, 9, 5, 10, 3],
+        },
+        {
+          title: 'Knowledge Gain',
+          value: '+34%',
+          spark: [0, 1, 2, 2, 9, 3, 20],
+        },
+
+      ]
 
       const chartOptions = ref({
         chart: {
@@ -101,6 +151,7 @@
         selectedActivityPeriod,
         chartOptions,
         series,
+        activityData,
       }
     },
   })

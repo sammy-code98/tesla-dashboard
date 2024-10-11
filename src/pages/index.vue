@@ -117,6 +117,6 @@
 <style scoped>
 .custom-select .v-input__control {
   box-shadow: none !important;
-  border-color: transparent !important; /* Remove focus border */
+  border-color: transparent !important;
 }
 </style>
