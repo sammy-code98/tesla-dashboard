@@ -1,5 +1,5 @@
 <template>
-  <div class="py-md-1">
+  <div>
     <v-container>
       <v-row>
         <v-col cols="4">
@@ -13,9 +13,9 @@
               variant="outlined"
             >
               <template #selection>
-                <p>
+                <p class="font-weight-medium text-grey-darken-1">
                   Timeframe:
-                  <span class="font-weight-bold">{{ selectedTime }}</span>
+                  <span class="text-black">{{ selectedTime }}</span>
                 </p>
               </template>
             </v-select>
@@ -33,9 +33,9 @@
               variant="outlined"
             >
               <template #selection>
-                <p>
+                <p class="font-weight-medium text-grey-darken-1">
                   People:
-                  <span class="font-weight-bold">{{ selectedTime }}</span>
+                  <span class="text-black">{{ selectedTime }}</span>
                 </p>
               </template>
             </v-select>
@@ -53,9 +53,9 @@
               variant="outlined"
             >
               <template #selection>
-                <p>
+                <p class="font-weight-medium text-grey-darken-1">
                   Timeframe:
-                  <span class="font-weight-bold">{{ selectedTopic }}</span>
+                  <span class="text-black">{{ selectedTopic }}</span>
                 </p>
               </template>
             </v-select>
@@ -63,16 +63,25 @@
         </v-col>
       </v-row>
     </v-container>
-    <HelloWorld />
+    <Chart />
+    <Topics />
+    <LeaderBoards />
   </div>
 </template>
 
 <script lang="ts">
-//
   import { defineComponent, ref } from 'vue'
+  import Chart from '@/components/Reports/Chart.vue'
+  import Topics from '@/components/Reports/Topics.vue'
+  import LeaderBoards from '@/components/Reports/LeaderBoards.vue'
 
   export default defineComponent({
     name: 'Reports',
+    components: {
+      Chart,
+      Topics,
+      LeaderBoards,
+    },
     setup () {
       interface SelectItemsI {
         title: string;
