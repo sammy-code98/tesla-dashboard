@@ -18,5 +18,6 @@ declare module 'vue' {
     Sidebar: typeof import('./components/Layout/Sidebar.vue')['default']
     TopicCard: typeof import('./components/utils/TopicCard.vue')['default']
     Topics: typeof import('./components/Reports/Topics.vue')['default']
+    UserCard: typeof import('./components/utils/UserCard.vue')['default']
   }
 }
