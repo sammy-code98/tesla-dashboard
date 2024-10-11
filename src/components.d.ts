@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     AppFooter: typeof import('./components/AppFooter.vue')['default']
     Chart: typeof import('./components/Reports/Chart.vue')['default']
+    GroupCard: typeof import('./components/Cards/GroupCard.vue')['default']
     Header: typeof import('./components/Layout/Header.vue')['default']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     LeaderBoards: typeof import('./components/Reports/LeaderBoards.vue')['default']
@@ -16,8 +17,8 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Sidebar: typeof import('./components/Layout/Sidebar.vue')['default']
-    TopicCard: typeof import('./components/utils/TopicCard.vue')['default']
+    TopicCard: typeof import('./components/Cards/TopicCard.vue')['default']
     Topics: typeof import('./components/Reports/Topics.vue')['default']
-    UserCard: typeof import('./components/utils/UserCard.vue')['default']
+    UserCard: typeof import('./components/Cards/UserCard.vue')['default']
   }
 }

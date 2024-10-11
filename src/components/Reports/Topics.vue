@@ -57,7 +57,7 @@
 
 <script lang="ts">
   import { defineComponent } from 'vue'
-  import TopicCard from '../utils/TopicCard.vue'
+  import TopicCard from '../Cards/TopicCard.vue'
 
   interface TopicsI {
     title: string;

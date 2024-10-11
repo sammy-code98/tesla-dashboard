@@ -36,6 +36,17 @@
                 Groups Leaderboard
               </h6>
             </div>
+            <div class="py-md02">
+              <GroupCard
+                v-for="(group,i) in groupData"
+                :key="i"
+                :color="group.color"
+                :description="group.description"
+                :icon="group.icon"
+                :position="group.position"
+                :title="group.title"
+              />
+            </div>
           </div>
         </v-col>
       </v-row>
@@ -45,7 +56,8 @@
 
 <script lang="ts">
   import { defineComponent } from 'vue'
-  import UserCard from '../utils/UserCard.vue'
+  import UserCard from '../Cards/UserCard.vue'
+  import GroupCard from '../Cards/GroupCard.vue'
 
   interface UserLeaderBoardI {
     name: string;
@@ -55,7 +67,13 @@
     color: string;
     icon: string;
   }
-
+  interface GroupsLeaderBoardI{
+    title:string;
+    description:string;
+    position:number;
+    color:string;
+    icon:string
+  }
   const userData: UserLeaderBoardI[] = [
     {
       name: 'Jesse Thomas',
@@ -91,14 +109,46 @@
     },
   ]
 
+  const groupData:GroupsLeaderBoardI[] = [
+    {
+      title: 'Houston Facility',
+      description: '52 Points / User - 97% Correct',
+      position: 1,
+      color: 'success',
+      icon: 'mdi-menu-up',
+    },
+    {
+      title: 'Test Group',
+      description: '52 Points / User - 95% Correct',
+      position: 2,
+      color: 'error',
+      icon: 'mdi-menu-down',
+    },
+    {
+      title: 'Sales Leadership',
+      description: '52 Points / User -  87% Correct',
+      position: 3,
+      color: 'success',
+      icon: 'mdi-menu-up',
+    },
+    {
+      title: 'Northeast Region',
+      description: '52 Points / User',
+      position: 4,
+      color: 'success',
+      icon: 'mdi-menu-up',
+    },
+  ]
   export default defineComponent({
     name: 'LeaderBoard',
     components: {
       UserCard,
+      GroupCard,
     },
     setup () {
       return {
         userData,
+        groupData,
       }
     },
   })

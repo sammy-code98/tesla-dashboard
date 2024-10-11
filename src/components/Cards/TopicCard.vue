@@ -8,7 +8,7 @@
         :src="props.imageSrc"
         :width="70"
       />
-      <div>
+      <div style="width: 20vw;">
         <h3 class="text-black text-subtitle-2 font-weight-bold">{{ props.title }}</h3>
         <v-progress-linear
           :bg-color="props.bgColor"
@@ -17,7 +17,7 @@
           :height="10"
           :model-value="props.progressValue"
           rounded="xl"
-          style="width: 450px;"
+          style="width: 100%;"
         />
       </div>
     </div>
