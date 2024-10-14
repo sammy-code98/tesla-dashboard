@@ -60,17 +60,17 @@
       }
       const items: NavigationItem[] = [
         { title: 'Reports', icon: 'mdi-trending-up', to: '/' },
-        { title: 'Library', icon: 'mdi-lightning-bolt', to: '/settings' },
+        { title: 'Library', icon: 'mdi-lightning-bolt', to: '/library' },
         {
           title: 'People',
           icon: 'mdi-account-multiple-outline',
-          to: '/settings',
+          to: '/people',
         },
-        { title: 'Activities', icon: 'mdi-clipboard-text', to: '/settings' },
+        { title: 'Activities', icon: 'mdi-clipboard-text', to: '/activities' },
       ]
 
       const supportItems: NavigationItem[] = [
-        { title: 'Get Started', icon: 'mdi-lightbulb-variant', to: '/get' },
+        { title: 'Get Started', icon: 'mdi-lightbulb-variant', to: '/get-started' },
         { title: 'Settings', icon: 'mdi-cog', to: '/settings' },
       ]
 
