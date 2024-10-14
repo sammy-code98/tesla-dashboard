@@ -7,7 +7,8 @@
       <v-list-item
         v-for="(item, i) in items"
         :key="i"
-        class="py-md-3 px-md-6"
+        active-class="active-link"
+        class="py-md-3 px-md-6 hover-link"
         :prepend-icon="item.icon"
         :title="item.title"
         :to="item.to"
@@ -21,7 +22,8 @@
           <v-list-item
             v-for="(item, i) in supportItems"
             :key="i"
-            class="py-md-3 px-md-6"
+            active-class="active-link"
+            class="py-md-3 px-md-6 hover-link"
             :prepend-icon="item.icon"
             :title="item.title"
             :to="item.to"
@@ -48,43 +50,32 @@
 </template>
 
 <script lang="ts">
+  import { items, supportItems } from '@/staticData'
   import { defineComponent } from 'vue'
 
   export default defineComponent({
     name: 'Sidebar',
     setup () {
-      interface NavigationItem {
-        icon: string;
-        title: string;
-        to: string;
-      }
-      const items: NavigationItem[] = [
-        { title: 'Reports', icon: 'mdi-trending-up', to: '/' },
-        { title: 'Library', icon: 'mdi-lightning-bolt', to: '/settings' },
-        {
-          title: 'People',
-          icon: 'mdi-account-multiple-outline',
-          to: '/settings',
-        },
-        { title: 'Activities', icon: 'mdi-clipboard-text', to: '/settings' },
-      ]
-
-      const supportItems: NavigationItem[] = [
-        { title: 'Get Started', icon: 'mdi-lightbulb-variant', to: '/get' },
-        { title: 'Settings', icon: 'mdi-cog', to: '/settings' },
-      ]
-
       return { items, supportItems }
     },
   })
 </script>
 
-<style scoped lang="sass">
-.v-navigation-drawer
-  position: relative
+<style scoped lang="scss">
+.v-navigation-drawer {
+  position: relative;
+}
+.absolute-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 80%;
+}
 
-.absolute-bottom
-  position: absolute
-  bottom: 0
-  width: 80%
+.active-link {
+  color: #1b59f8 !important;
+  font-weight: bold !important;
+}
+.hover-link:hover {
+  color: #1b59f8 !important;
+}
 </style>

@@ -4,7 +4,7 @@
       <v-row>
         <v-col cols="6">
           <div
-            class="px-md-8 py-md-4 bg-white rounded-xl border"
+            class="px-md-8 py-md-4 bg-white rounded-xl shadow"
             style="height: 100%"
           >
             <div>
@@ -58,87 +58,8 @@
   import { defineComponent } from 'vue'
   import UserCard from '../Cards/UserCard.vue'
   import GroupCard from '../Cards/GroupCard.vue'
+  import { groupData, userData } from '@/staticData'
 
-  interface UserLeaderBoardI {
-    name: string;
-    avatarSrc: string;
-    description: string;
-    position: number;
-    color: string;
-    icon: string;
-  }
-  interface GroupsLeaderBoardI{
-    title:string;
-    description:string;
-    position:number;
-    color:string;
-    icon:string
-  }
-  const userData: UserLeaderBoardI[] = [
-    {
-      name: 'Jesse Thomas',
-      avatarSrc: 'https://picsum.photos/500/300?image=50',
-      description: '637 Points - 98% Correct',
-      position: 1,
-      color: 'success',
-      icon: 'mdi-menu-up',
-    },
-    {
-      name: 'Thisal Mathiyazhagan',
-      avatarSrc: 'https://picsum.photos/500/300?image=55',
-      description: '637 Points - 89% Correct ',
-      position: 2,
-      color: 'error',
-      icon: 'mdi-menu-down',
-    },
-    {
-      name: 'Helen Chuang',
-      avatarSrc: 'https://picsum.photos/500/300?image=53',
-      description: '637 Points - 88% Correct',
-      position: 3,
-      color: 'success',
-      icon: 'mdi-menu-up',
-    },
-    {
-      name: 'Lura Silverman',
-      avatarSrc: 'https://picsum.photos/500/300?image=51',
-      description: '637 Points',
-      position: 4,
-      color: 'success',
-      icon: 'mdi-menu-up',
-    },
-  ]
-
-  const groupData:GroupsLeaderBoardI[] = [
-    {
-      title: 'Houston Facility',
-      description: '52 Points / User - 97% Correct',
-      position: 1,
-      color: 'success',
-      icon: 'mdi-menu-up',
-    },
-    {
-      title: 'Test Group',
-      description: '52 Points / User - 95% Correct',
-      position: 2,
-      color: 'error',
-      icon: 'mdi-menu-down',
-    },
-    {
-      title: 'Sales Leadership',
-      description: '52 Points / User -  87% Correct',
-      position: 3,
-      color: 'success',
-      icon: 'mdi-menu-up',
-    },
-    {
-      title: 'Northeast Region',
-      description: '52 Points / User',
-      position: 4,
-      color: 'success',
-      icon: 'mdi-menu-up',
-    },
-  ]
   export default defineComponent({
     name: 'LeaderBoard',
     components: {
@@ -153,3 +74,9 @@
     },
   })
 </script>
+
+<style scoped lang="scss">
+.shadow{
+   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+</style>
