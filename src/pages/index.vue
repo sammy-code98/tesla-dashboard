@@ -25,17 +25,17 @@
         <v-col cols="4">
           <div>
             <v-select
-              v-model="selectedTime"
+              v-model="selectedPeople"
               item-title="title"
               item-value="value"
-              :items="timeFrame"
+              :items="peopleOptions"
               rounded="xl"
               variant="outlined"
             >
               <template #selection>
                 <p class="font-weight-medium text-grey-darken-1">
                   People:
-                  <span class="text-black">{{ selectedTime }}</span>
+                  <span class="text-black">{{ selectedPeople }}</span>
                 </p>
               </template>
             </v-select>
@@ -54,7 +54,7 @@
             >
               <template #selection>
                 <p class="font-weight-medium text-grey-darken-1">
-                  Timeframe:
+                  Topic:
                   <span class="text-black">{{ selectedTopic }}</span>
                 </p>
               </template>
@@ -63,7 +63,8 @@
         </v-col>
       </v-row>
     </v-container>
-    <Chart />
+
+    <Chart :people="selectedPeople" :selected-time="selectedTime" :topic="selectedTopic" />
     <Topics />
     <LeaderBoards />
   </div>
@@ -74,7 +75,7 @@
   import Chart from '@/components/Reports/Chart.vue'
   import Topics from '@/components/Reports/Topics.vue'
   import LeaderBoards from '@/components/Reports/LeaderBoards.vue'
-  import { timeFrame, topics } from '@/staticData'
+  import { peopleOptions, timeFrame, topics } from '@/staticData'
 
   export default defineComponent({
     name: 'Reports',
@@ -84,14 +85,17 @@
       LeaderBoards,
     },
     setup () {
-      const selectedTime = ref('Last 7 Days')
+      const selectedTime = ref('Month')
       const selectedTopic = ref('All')
+      const selectedPeople = ref('All')
 
       return {
         timeFrame,
         selectedTime,
         topics,
         selectedTopic,
+        selectedPeople,
+        peopleOptions,
       }
     },
   })

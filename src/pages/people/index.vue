@@ -17,7 +17,7 @@
 
         <div class="py-md-12">
           <v-data-table-server
-            :headers="headers"
+            :headers:any="headers"
             :items="serverItems"
             :items-length="totalItems"
             :loading="loading"

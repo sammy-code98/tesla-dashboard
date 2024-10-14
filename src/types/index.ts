@@ -17,6 +17,9 @@ export interface GroupsLeaderBoardI{
 export type ActivityI = string[]
 
 export interface ActivityCardI {
+  timeframes: any;
+  people: any;
+  topic: string;
   title:string
   value:string
   subValue?:string

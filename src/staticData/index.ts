@@ -66,30 +66,77 @@ export const groupData:GroupsLeaderBoardI[] = [
   },
 ]
 
-export const activityData:ActivityCardI[] = [
+export const activityData: ActivityCardI[] = [
   {
     title: 'Active Users',
     value: '27',
     subValue: '/80',
+    timeframes: {
+      week: { value: '20', subValue: '/50' },
+      month: { value: '25', subValue: '/70' },
+      year: { value: '27', subValue: '/80' },
+    },
+    people: undefined,
+    topic: '',
   },
-  { title: 'Questions Answered', value: '3,298' },
-  { title: 'Av. Session Length', value: '2m 34s' },
+  {
+    title: 'Questions Answered',
+    value: '3,298',
+    timeframes: {
+      week: { value: '300', subValue: '' },
+      month: { value: '1200', subValue: '' },
+      year: { value: '3298', subValue: '' },
+    },
+    people: undefined,
+    topic: '',
+  },
+  {
+    title: 'Average Session Length',
+    value: '2m 34s',
+    timeframes: {
+      week: { value: '2m 0s', subValue: '' },
+      month: { value: '2m 15s', subValue: '' },
+      year: { value: '2m 34s', subValue: '' },
+    },
+    people: undefined,
+    topic: '',
+  },
   {
     title: 'Starting Knowledge',
     value: '64%',
     spark: [0, 1, 8, 2, 9, 12, 15],
+    timeframes: {
+      week: { value: '60%', subValue: '' },
+      month: { value: '62%', subValue: '' },
+      year: { value: '64%', subValue: '' },
+    },
+    people: undefined,
+    topic: '',
   },
   {
     title: 'Current Knowledge',
     value: '86%',
     spark: [0, 12, 5, 9, 5, 10, 3],
+    timeframes: {
+      week: { value: '82%', subValue: '' },
+      month: { value: '84%', subValue: '' },
+      year: { value: '86%', subValue: '' },
+    },
+    people: undefined,
+    topic: '',
   },
   {
     title: 'Knowledge Gain',
     value: '+34%',
     spark: [0, 1, 2, 2, 9, 3, 20],
+    timeframes: {
+      week: { value: '+30%', subValue: '' },
+      month: { value: '+32%', subValue: '' },
+      year: { value: '+34%', subValue: '' },
+    },
+    people: undefined,
+    topic: '',
   },
-
 ]
 
 export const timeFrame: SelectItemsI[] = [
@@ -338,4 +385,11 @@ export const people:Person[] = [
     status: 'Active',
   },
 
+]
+
+export const peopleOptions = [
+  { title: 'All', value: 'All' },
+  { title: 'User Group A', value: 'GroupA' },
+  { title: 'User Group B', value: 'GroupB' },
+  // Add more options as needed
 ]
