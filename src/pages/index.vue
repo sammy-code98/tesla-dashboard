@@ -74,6 +74,7 @@
   import Chart from '@/components/Reports/Chart.vue'
   import Topics from '@/components/Reports/Topics.vue'
   import LeaderBoards from '@/components/Reports/LeaderBoards.vue'
+  import { timeFrame, topics } from '@/staticData'
 
   export default defineComponent({
     name: 'Reports',
@@ -83,26 +84,8 @@
       LeaderBoards,
     },
     setup () {
-      interface SelectItemsI {
-        title: string;
-        value: string;
-      }
       const selectedTime = ref('Last 7 Days')
       const selectedTopic = ref('All')
-
-      const timeFrame: SelectItemsI[] = [
-        { title: 'Last 7 Days', value: 'Last 7 Days' },
-        { title: 'This Month ', value: 'This Month' },
-        { title: 'This Year ', value: 'This Year ' },
-        { title: 'Custom ', value: 'Custom ' },
-      ]
-
-      const topics: SelectItemsI[] = [
-        { title: 'All', value: 'All' },
-        { title: 'Food Safety ', value: 'Food Safety' },
-        { title: 'Covid Protocols  ', value: 'Covid Protocols  ' },
-        { title: 'Social Media Policies ', value: 'Social Media Policies ' },
-      ]
 
       return {
         timeFrame,

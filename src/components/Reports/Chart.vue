@@ -6,7 +6,7 @@
           <v-row class="flex-wrap">
             <v-col v-for="(act,i) in activityData" :key="i" class="d-flex justify-center align-center" cols="4">
               <div style="height: 100%; width: 100%;">
-                <div class="px-md-4 py-md-2  bg-white rounded-xl border" style="width: 100%; min-height: 202.4px;">
+                <div class="px-md-4 py-md-2  bg-white rounded-xl shadow" style="width: 100%; min-height: 202.4px;">
                   <h3 class="text-subtitle-1 text-grey-darken-1 font-weight-regular">{{ act.title }}</h3>
                   <div class="py-md-4">
                     <h2 class="text-black font-weight-bold text-h4">{{ act.value }}<span class="text-grey-darken-1 text-disabled text-h5">{{ act.subValue }}</span></h2>
@@ -29,7 +29,7 @@
           </v-row>
         </v-col>
         <v-col cols="6">
-          <div class="px-md-4 bg-white rounded-xl border" style="height: 100%;">
+          <div class="px-md-4 bg-white rounded-xl shadow" style="height: 100%;">
             <div class="d-flex  justify-space-between align-center">
               <h6 class="text-body-1 font-weight-medium text-grey-darken-1">Activity</h6>
               <v-select
@@ -54,6 +54,8 @@
 </template>
 
 <script lang="ts">
+  import { activityData } from '@/staticData'
+  import { ActivityI } from '@/types'
   import { defineComponent, ref } from 'vue'
   import VueApexCharts from 'vue3-apexcharts'
 
@@ -63,43 +65,9 @@
       apexchart: VueApexCharts,
     },
     setup () {
-      type ActivityI = string[]
       const selectedActivityPeriod = ref('Month')
 
       const activity:ActivityI = ['Week', 'Month', 'Year']
-
-      interface ActivityCardI {
-        title:string
-        value:string
-        subValue?:string
-        spark?:number[]
-      }
-
-      const activityData:ActivityCardI[] = [
-        {
-          title: 'Active Users',
-          value: '27',
-          subValue: '/80',
-        },
-        { title: 'Questions Answered', value: '3,298' },
-        { title: 'Av. Session Length', value: '2m 34s' },
-        {
-          title: 'Starting Knowledge',
-          value: '64%',
-          spark: [0, 1, 8, 2, 9, 12, 15],
-        },
-        {
-          title: 'Current Knowledge',
-          value: '86%',
-          spark: [0, 12, 5, 9, 5, 10, 3],
-        },
-        {
-          title: 'Knowledge Gain',
-          value: '+34%',
-          spark: [0, 1, 2, 2, 9, 3, 20],
-        },
-
-      ]
 
       const chartOptions = ref({
         chart: {
@@ -160,4 +128,7 @@
 <style scoped lang="sass">
 .select-width
    max-width: 90px
+
+.shadow
+   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px
 </style>

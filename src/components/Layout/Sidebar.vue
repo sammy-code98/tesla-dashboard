@@ -7,6 +7,7 @@
       <v-list-item
         v-for="(item, i) in items"
         :key="i"
+        active-class="active-link"
         class="py-md-3 px-md-6"
         :prepend-icon="item.icon"
         :title="item.title"
@@ -21,6 +22,7 @@
           <v-list-item
             v-for="(item, i) in supportItems"
             :key="i"
+            active-class="active-link"
             class="py-md-3 px-md-6"
             :prepend-icon="item.icon"
             :title="item.title"
@@ -48,32 +50,12 @@
 </template>
 
 <script lang="ts">
+  import { items, supportItems } from '@/staticData'
   import { defineComponent } from 'vue'
 
   export default defineComponent({
     name: 'Sidebar',
     setup () {
-      interface NavigationItem {
-        icon: string;
-        title: string;
-        to: string;
-      }
-      const items: NavigationItem[] = [
-        { title: 'Reports', icon: 'mdi-trending-up', to: '/' },
-        { title: 'Library', icon: 'mdi-lightning-bolt', to: '/library' },
-        {
-          title: 'People',
-          icon: 'mdi-account-multiple-outline',
-          to: '/people',
-        },
-        { title: 'Activities', icon: 'mdi-clipboard-text', to: '/activities' },
-      ]
-
-      const supportItems: NavigationItem[] = [
-        { title: 'Get Started', icon: 'mdi-lightbulb-variant', to: '/get-started' },
-        { title: 'Settings', icon: 'mdi-cog', to: '/settings' },
-      ]
-
       return { items, supportItems }
     },
   })
@@ -87,4 +69,8 @@
   position: absolute
   bottom: 0
   width: 80%
+
+.active-link
+  color: #1B59F8 !important
+  font-weight: bold !important
 </style>

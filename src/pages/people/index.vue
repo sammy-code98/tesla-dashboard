@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <v-container>
       <div>
         <div>
@@ -33,177 +32,9 @@
 </template>
 
 <script lang="ts">
+  import { people } from '@/staticData'
+  import { Person, TableI } from '@/types'
   import { defineComponent, reactive, ref } from 'vue'
-
-  interface TableI{
-    page:number;
-    itemsPerPage:number;
-    sortBy:any;
-  }
-
-  const people = [
-    {
-      name: 'Samuel Uzor',
-      email: 'ugosammy98@gmail.com',
-      position: 'Frontend Developer',
-      department: 'Engineering',
-      employee: 'TES0032',
-      status: 'Active',
-    },
-    {
-      name: 'Isabella Garcia',
-      email: 'garcia@bella.com',
-      position: 'Marketing Manager',
-      department: 'Marketing',
-      employee: 'MKTG0001',
-      status: 'On Leave',
-    },
-    {
-      name: 'Omar Khan',
-      email: 'omar999@yahoo.com',
-      position: 'Backend Developer',
-      department: 'Engineering',
-      employee: 'ENG0024',
-      status: 'Active',
-    },
-    {
-      name: 'Li Chen',
-      email: 'chenli@rams.com',
-      position: 'Financial Analyst',
-      department: 'Finance',
-      employee: 'FIN0019',
-      status: 'Active',
-    },
-    {
-      name: 'Aisha Diallo',
-      email: 'aisha@buhari.com',
-      position: 'Sales Representative',
-      department: 'Sales',
-      employee: 'SAL0078',
-      status: 'On Leave',
-    },
-    {
-      name: 'David Miller',
-      email: 'dave@miller23.com',
-      position: 'Project Manager',
-      department: 'Project Management',
-      employee: 'PM0045',
-      status: 'On Leave',
-    },
-    {
-      name: 'Elena Petrova',
-      email: 'elena@pet.com',
-      position: 'UX Designer',
-      department: 'Design',
-      employee: 'DES0011',
-      status: 'Active',
-    },
-    {
-      name: 'Katsuro Tanaka',
-      email: '[email address removed]',
-      position: 'Software Engineer',
-      department: 'Engineering',
-      employee: 'ENG0037',
-      status: 'Active',
-    },
-    {
-      name: 'Maria Lopez',
-      email: 'lopez@gmail.com',
-      position: 'Customer Success Manager',
-      department: 'Customer Success',
-      employee: 'CSM0009',
-      status: 'Active',
-    },
-    {
-      name: 'Ahmed Hassan',
-      email: 'ahmed@test.com',
-      position: 'Data Scientist',
-      department: 'Data Science',
-      employee: 'DS0021',
-      status: 'Active',
-    },
-    {
-      name: 'Chloe Bennett',
-      email: 'bennet@trappy.com',
-      position: 'Human Resources Specialist',
-      department: 'Human Resources',
-      employee: 'HR0052',
-      status: 'Active',
-    },
-    {
-      name: 'Olivia Lee',
-      email: 'lee@china.gov',
-      position: 'Content Writer',
-      department: 'Marketing',
-      employee: 'MKTG0002',
-      status: 'Active',
-    },
-    {
-      name: 'Daniel Kim',
-      email: 'kim@eng.com',
-      position: 'Full Stack Developer',
-      department: 'Engineering',
-      employee: 'ENG0025',
-      status: 'Active',
-    },
-    {
-      name: 'Sophia Wang',
-      email: 'wang@fin.com',
-      position: 'Accountant',
-      department: 'Finance',
-      employee: 'FIN0020',
-      status: 'Active',
-    },
-    {
-      name: 'Benjamin Brown',
-      email: 'ben@brown.com',
-      position: 'Sales Manager',
-      department: 'Sales',
-      employee: 'SAL0079',
-      status: 'Active',
-    },
-    {
-      name: 'Emily Davis',
-      email: 'davies332@emi.com',
-      position: 'Product Manager',
-      department: 'Product Management',
-      employee: 'PM0046',
-      status: 'Active',
-    },
-    {
-      name: 'Ava Johnson',
-      email: 'ava@hjohn.com',
-      position: 'Graphic Designer',
-      department: 'Design',
-      employee: 'DES0012',
-      status: 'Active',
-    },
-    {
-      name: 'Ethan Carter',
-      email: 'carter@system.admin',
-      position: 'System Administrator',
-      department: 'IT',
-      employee: 'IT0038',
-      status: 'Active',
-    },
-    {
-      name: 'Lily Wilson',
-      email: 'lil@332.com',
-      position: 'Customer Support Representative',
-      department: 'Customer Success',
-      employee: 'CSM0010',
-      status: 'Active',
-    },
-    {
-      name: 'Noah Jones',
-      email: 'jones@liverpool.amad',
-      position: 'Business Analyst',
-      department: 'Data Science',
-      employee: 'DS0022',
-      status: 'Active',
-    },
-
-  ]
 
   const FakeAPI = {
     async fetch ({ page, itemsPerPage, sortBy, search }: TableI & { search: string }) {
@@ -218,13 +49,15 @@
               : true
           )
 
+          type SortKey = keyof Person;
+
           if (sortBy.length) {
-            const sortKey = sortBy[0].key
+            const sortKey:SortKey = sortBy[0].key as SortKey
             const sortOrder = sortBy[0].order
             filteredItems.sort((a, b) => {
               const aValue = a[sortKey]
               const bValue = b[sortKey]
-              return sortOrder === 'desc' ? bValue - aValue : aValue - bValue
+              return sortOrder === 'desc' ? (bValue > aValue ? 1 : -1) : (aValue > bValue ? 1 : -1)
             })
           }
 
