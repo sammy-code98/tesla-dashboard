@@ -4,7 +4,7 @@ This project is built as part of a technical interview test for a frontend engin
 
 
 ## Demo
-[RiseTestDemo](https://samuel-uzor-tesla.vercel.app/)
+[TestDemo](https://samuel-uzor-tesla.vercel.app/)
 
 
 ## Features
