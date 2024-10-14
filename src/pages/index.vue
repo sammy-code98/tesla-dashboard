@@ -101,9 +101,9 @@
   })
 </script>
 
-<style scoped lang="sass">
-.custom-select .v-input__control
-  box-shadow: none !important
-  border-color: transparent !important
-
+<style scoped lang="scss">
+.custom-select .v-input__control{
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
 </style>

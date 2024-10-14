@@ -14,7 +14,8 @@
   </v-container>
 </template>
 
-<style scoped lang="sass">
-.container
+<style scoped lang="scss">
+.container{
   padding-top: 200px
+}
 </style>

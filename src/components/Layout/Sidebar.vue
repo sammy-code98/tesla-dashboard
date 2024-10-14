@@ -8,7 +8,7 @@
         v-for="(item, i) in items"
         :key="i"
         active-class="active-link"
-        class="py-md-3 px-md-6"
+        class="py-md-3 px-md-6 hover-link"
         :prepend-icon="item.icon"
         :title="item.title"
         :to="item.to"
@@ -23,7 +23,7 @@
             v-for="(item, i) in supportItems"
             :key="i"
             active-class="active-link"
-            class="py-md-3 px-md-6"
+            class="py-md-3 px-md-6 hover-link"
             :prepend-icon="item.icon"
             :title="item.title"
             :to="item.to"
@@ -61,16 +61,21 @@
   })
 </script>
 
-<style scoped lang="sass">
-.v-navigation-drawer
-  position: relative
+<style scoped lang="scss">
+.v-navigation-drawer {
+  position: relative;
+}
+.absolute-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 80%;
+}
 
-.absolute-bottom
-  position: absolute
-  bottom: 0
-  width: 80%
-
-.active-link
-  color: #1B59F8 !important
-  font-weight: bold !important
+.active-link {
+  color: #1b59f8 !important;
+  font-weight: bold !important;
+}
+.hover-link:hover {
+  color: #1b59f8 !important;
+}
 </style>
