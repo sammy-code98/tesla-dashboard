@@ -4,7 +4,7 @@ This project is built as part of a technical interview test for a frontend engin
 
 
 ## Demo
-[RiseTestDemo](https://samuel-uzor-rise-test.vercel.app/)
+[RiseTestDemo](https://samuel-uzor-tesla.vercel.app/)
 
 
 ## Features
@@ -19,6 +19,7 @@ This project is built as part of a technical interview test for a frontend engin
 - **Vuejs:** For building the user interface.
 - **TypeScript:** Ensuring type safety and reducing runtime errors.
 - **Vuetify:** Open Source UI Library with beautifully handcrafted Vue Components
+- **Vite:** For a fast and optimized development experience 
 
 
 ## Run Locally
